@@ -5,6 +5,16 @@ session_start();
 // unset($_SESSION['name']);
 // };
 $name = $_SESSION['name'] ?? 'Guest';
+
+
+//get cookie
+
+$gender = $_COOKIE['gender'] ?? 'unknown';
+
+// echo $gender;
+
+
+
 ?>
 <head>
     <meta charset="UTF-8">
