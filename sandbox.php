@@ -74,28 +74,79 @@ $handle = fopen($file, 'a+');
 // echo fgetc($handle);
 
 // writing to file
-echo fwrite($handle, "\n Everything will be ok");
+// echo fwrite($handle, "\n Everything will be ok");
 
-fclose($handle);
-unlink('quote.txt');
-?>
+// fclose($handle);
+// unlink('quote.txt');
+
+
+
+// classes
+
+class User
+{
+
+    private $email;
+    private $name;
+
+    public function __construct($name,$email){
+    // $this->email='mario@me.uk';
+    // $this->name='mario';
+    $this->email=$email;
+    $this->name=$name;
+    }
+
+    public function login() {
+        echo "$this->name logged in". "<br>";
+    }
+
+    public function getName(){
+        return $this->name;
+    }
+    public function setName($name){
+        if(is_string($name) && strlen($name) > 1){
+            $this->name =$name;
+            return "name has been updated to $name";
+        }else{
+            return 'not a valid name';
+        };
+      
+    }
+};
+
+// $userOne = new User();
+
+
+// $userOne->login() ;
+// echo $userOne->name;
+
+// $userTwo = new User('yoshi','yoshi@me.com');
+// // $userTwo->login() ; 
+// //  $userTwo->name = 'mario';
+// echo $userTwo->setName(45);
+//  echo $userTwo->getName();
+
+// ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
-    <!-- <input type="text" name="name">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <!-- <input type="text" name="name">
     <select name="gender" id="">
         <option value="male">male</option>
         <option value="female">female</option>
     </select>
     <input type="submit" value="submit" name="submit"> -->
-</form>
+    </form>
 </body>
+
 </html>
