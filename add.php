@@ -34,6 +34,9 @@ if(empty($_POST['ingredients'])){
     if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/',$ingredients)){
         $errors['ingredients']= "Ingredients must be a comma separted list <br>";
     }
+    if(!array_filter($errors)){
+        header("Location: index.php");
+    };
 }
 }
 ?>
