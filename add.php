@@ -1,4 +1,5 @@
 <?php
+include('config/db_connect.php');
 
 $email = $title = $ingredients = '';
 
@@ -35,7 +36,24 @@ if(empty($_POST['ingredients'])){
         $errors['ingredients']= "Ingredients must be a comma separted list <br>";
     }
     if(!array_filter($errors)){
-        header("Location: index.php");
+
+
+        $email = mysqli_real_escape_string($conn, $email);
+        $title = mysqli_real_escape_string($conn, $title);
+       $ingredients = mysqli_real_escape_string($conn,$ingredients);
+
+// create sql
+$sql= "INSERT INTO pizza(titile,email,ingredients) VALUES('$title','$email','$ingredients')";
+
+
+//  save to db and check
+if (mysqli_query($conn,$sql)) {
+    header("Location: index.php");
+
+}else{
+echo  'query error:' . mysqli_error($conn);
+};
+
     };
 }
 }
