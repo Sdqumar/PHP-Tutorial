@@ -1,34 +1,38 @@
 <?php
 
+$email = $title = $ingredients = '';
+
+$errors= ['email'=>'','title'=>'','ingredients'=>''];
+
 if(isset($_POST['submit'])){
 
 //Check email
 if(empty($_POST['email'])){
-echo "An email is required <br>";
+    $errors['email']="An email is required <br>";
 }else{
     $email =$_POST['email'];
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        echo "invalid Email Address <br>";
+        $errors['email']="Invalid Email Address <br>";
     }
 }
 
 //Check title
 if(empty($_POST['title'])){
-echo "An title is required <br>";
+    $errors['title']="A title is required <br>";
 }else{
     $title =$_POST['title'];
     if(!preg_match('/^[a-zA-Z\s]+$/',$title)){
-        echo "title must be letters and spaces only <br>";
+        $errors['title']="Title must be letters and spaces only <br>";
     }
 }
 
 //Check ingredients
 if(empty($_POST['ingredients'])){
-echo "An ingredients is required <br>";
+    $errors['ingredients']= "At latest one ingredients is required <br>";
 }else{
     $ingredients =$_POST['ingredients'];
     if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/',$ingredients)){
-        echo "ingredients must be a comma separted list <br>";
+        $errors['ingredients']= "Ingredients must be a comma separted list <br>";
     }
 }
 }
@@ -41,11 +45,16 @@ echo "An ingredients is required <br>";
 
     <form action="add.php"  method="POST" class="white">
         <label for="Email">Your Email:</label>
-        <input type="text" name='email'>
+        <input type="text" name='email' value="<?php echo $email?>">
+        <div class="red-text"><?php echo $errors['email'] ?></div>
         <label for="Email">Pizza Title:</label>
-        <input type="text" name='title'>
+        <input type="text" name='title' value="<?php echo $title?>">
+        <div class="red-text"><?php echo $errors['title'] ?></div>
+
         <label for="Email">Ingredients (comma separated):</label>
-        <input type="text" name='ingredients'>
+        <input type="text" name='ingredients' value="<?php echo $ingredients ?>">
+        <div class="red-text"><?php echo $errors['ingredients'] ?></div>
+        
         <div class="center">
             <input type="submit" value="submit" name='submit'class="btn brand z-depth-0">
         </div>
