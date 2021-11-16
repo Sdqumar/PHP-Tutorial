@@ -6,7 +6,6 @@ session_start();
 // };
 $name = $_SESSION['name'] ?? 'Guest';
 
-
 //get cookie
 
 $gender = $_COOKIE['gender'] ?? 'unknown';
