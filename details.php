@@ -49,7 +49,7 @@ if (isset($_POST['delete'])) {
 <div class="container center">
     <?php if ($pizza) : ?>
 
-        <h4><?php echo htmlspecialchars($pizza['titile']) ?></h4>
+        <h4><?php echo htmlspecialchars($pizza['title']) ?></h4>
         <p>Create by: <?php echo htmlspecialchars($pizza['email']) ?></p>
         <p>Create at: <?php echo htmlspecialchars($pizza['created_at']) ?></p>
         <h4>Ingredients</h4>

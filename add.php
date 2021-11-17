@@ -43,7 +43,7 @@ if(empty($_POST['ingredients'])){
        $ingredients = mysqli_real_escape_string($conn,$ingredients);
 
 // create sql
-$sql= "INSERT INTO pizza(titile,email,ingredients) VALUES('$title','$email','$ingredients')";
+$sql= "INSERT INTO pizza(title,email,ingredients) VALUES('$title','$email','$ingredients')";
 
 
 //  save to db and check
