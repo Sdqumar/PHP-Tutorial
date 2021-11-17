@@ -33,10 +33,10 @@ mysqli_close($conn);
 <div class="container">
     <div class="row">
         <?php foreach ($pizzas as $pizza) : ?>
-            <div class="col s6 md3">
-                <div class="card z-depth-0">
+            <div class="col s6 md3 ">
+                <div class="card z-depth-0 card-item">
                 <img src="pizza.svg"class="pizza">
-                    <div class="card-content center">
+                    <div class="card-content center card-body">
                         <h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
                         <ul>
                             <?php
@@ -46,8 +46,8 @@ mysqli_close($conn);
                             <?php endforeach ?>
                         </ul>
                     </div>
-                        <div class="card-action right-align">
-                            <a href="details.php?id=<?php echo $pizza['id']?>" class="brand-text">more info</a>
+                        <div class="card-action right-align" >
+                            <a href="details.php?id=<?php echo $pizza['id']?>" class="more-info">more info</a>
                         </div>
                     </div>
                 </div>
